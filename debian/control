@@ -17,10 +17,6 @@ Build-Depends: ant [!hppa !hurd-any !kfreebsd-any],
                libavformat-dev,
                libdc1394-dev [linux-any],
                libeigen3-dev,
-               libgdal-dev,
-               libgdcm-dev [!alpha !hppa !ia64 !kfreebsd-amd64 !kfreebsd-i386 !m68k !powerpcspe !sh4 !x32],
-               libvtkgdcm-dev [!alpha !hppa !ia64 !kfreebsd-amd64 !kfreebsd-i386 !m68k !powerpcspe !sh4 !x32],
-               libgdcm-tools [!alpha !hppa !ia64 !kfreebsd-amd64 !kfreebsd-i386 !m68k !powerpcspe !sh4 !x32],
                libgl-dev,
                libglu1-mesa-dev,
                libgoogle-glog-dev,
@@ -46,7 +42,6 @@ Build-Depends: ant [!hppa !hurd-any !kfreebsd-any],
                libtiff-dev,
                libv4l-dev [linux-any],
                libva-dev,
-               libvtk9-dev,
                libgstreamer1.0-dev,
                libgstreamer-plugins-base1.0-dev,
                dh-sequence-maven-repo-helper [!hppa !hurd-any !kfreebsd-any],
@@ -105,7 +100,6 @@ Depends: libopencv-calib3d-dev (= ${binary:Version}),
          libopencv-video-dev (= ${binary:Version}),
          libopencv-videoio-dev (= ${binary:Version}),
          libopencv-videostab-dev (= ${binary:Version}),
-         libopencv-viz-dev (= ${binary:Version}),
          pkg-config,
          ${misc:Depends},
          ${shlibs:Depends},
@@ -276,8 +270,7 @@ Package: libopencv-imgcodecs-dev
 Architecture: any
 Multi-Arch: same
 Section: libdevel
-Depends: libgdcm-dev [!alpha !hppa !ia64 !kfreebsd-amd64 !kfreebsd-i386 !m68k !powerpcspe !sh4 !x32],
-         libopencv-imgcodecs406 (= ${binary:Version}),
+Depends: libopencv-imgcodecs406 (= ${binary:Version}),
          libopencv-imgproc-dev (= ${binary:Version}),
          ${misc:Depends}
 Description: development files for libopencv-imgcodecs406
@@ -885,49 +878,6 @@ Description: computer vision Super Resolution library
  analysis, structural analysis, motion analysis and object tracking, object
  recognition, camera calibration and 3D reconstruction.
 
-Package: libopencv-viz-dev
-Architecture: any
-Multi-Arch: same
-Section: libdevel
-Depends: libopencv-core-dev (= ${binary:Version}),
-         libopencv-viz406 (= ${binary:Version}),
-         ${misc:Depends}
-Description: development files for libopencv-viz406
- This package contains the header files and static library needed to compile
- applications that use OpenCV (Open Computer Vision) 3D data visualization
- library.
- .
- The Open Computer Vision Library is a collection of algorithms and sample
- code for various computer vision problems. The library is compatible with
- IPL (Intel's Image Processing Library) and, if available, can use IPP
- (Intel's Integrated Performance Primitives) for better performance.
- .
- OpenCV provides low level portable data types and operators, and a set
- of high level functionalities for video acquisition, image processing and
- analysis, structural analysis, motion analysis and object tracking, object
- recognition, camera calibration and 3D reconstruction.
-
-Package: libopencv-viz406
-Architecture: any
-Multi-Arch: same
-Section: libs
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
-Pre-Depends: ${misc:Pre-Depends}
-Description: computer vision 3D data visualization library
- This package contains the OpenCV (Open Computer Vision) 3D data visualization
- runtime libraries.
- .
- The Open Computer Vision Library is a collection of algorithms and sample
- code for various computer vision problems. The library is compatible with
- IPL (Intel's Image Processing Library) and, if available, can use IPP
- (Intel's Integrated Performance Primitives) for better performance.
- .
- OpenCV provides low level portable data types and operators, and a set
- of high level functionalities for video acquisition, image processing and
- analysis, structural analysis, motion analysis and object tracking, object
- recognition, camera calibration and 3D reconstruction.
-
 #Package: libopencv-gapi-dev
 #Section: libdevel
 #Architecture: any
@@ -995,7 +945,6 @@ Depends: libopencv-calib3d-dev (= ${binary:Version}),
          libopencv-video-dev (= ${binary:Version}),
          libopencv-videoio-dev (= ${binary:Version}),
          libopencv-videostab-dev (= ${binary:Version}),
-         libopencv-viz-dev (= ${binary:Version}),
          ${misc:Depends}
 Description: development files for libopencv-contrib406
  This package contains the header files and static library needed to compile
